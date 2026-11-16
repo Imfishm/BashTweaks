@@ -15,14 +15,14 @@ The installer copies `init_dir.sh` to `~/.bash_init_dir` and adds a line to `~/.
 
 | Command | What it does |
 |---|---|
-| `siti <dir>` | Set `<dir>` as the initial directory |
+| `sit <dir>` | Set `<dir>` as the initial directory |
 | `sitc` | Set the current directory as the initial directory |
 | `sith` | Set your home directory as the initial directory (the default behavior) |
 
 ```bash
 cd ~/projects/my-app
 sitc                  # new terminals now open in ~/projects/my-app
-siti ~/Documents      # ...or pick one explicitly
+sit ~/Documents       # ...or pick one explicitly
 ```
 
 The choice is saved in `~/.saved_init_dir`, so it persists across sessions. The directory is also exported as `$INIT_DIR`.

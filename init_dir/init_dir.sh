@@ -3,11 +3,11 @@
 
 INIT_DIR_CONFIG="$HOME/.saved_init_dir"
 
-# siti = set-initial-to-input directory (saved across terminal sessions)
-siti() {
+# sit = set-initial-to directory (saved across terminal sessions)
+sit() {
     local target_dir
     if [[ -z "$1" ]]; then
-        echo "Usage: siti <directory>"
+        echo "Usage: sit <directory>"
         return 1
     fi
     target_dir=$(realpath -m -- "$1" 2>/dev/null)
@@ -23,12 +23,12 @@ siti() {
 }
 
 # sitc = set-initial-to-current directory
-sitc() { siti "$PWD"; }
+sitc() { sit "$PWD"; }
 
 # sith = set-initial-to-home directory
-sith() { siti "$HOME"; }
+sith() { sit "$HOME"; }
 
-uninstall_init_dir() { sed -i "/initial directory tools/d;/bash_init_dir/d" ~/.bashrc && rm -f ~/.bash_init_dir ~/.saved_init_dir && unset -f siti sitc sith uninstall_init_dir && echo "init_dir uninstalled."; }
+uninstall_init_dir() { sed -i "/initial directory tools/d;/bash_init_dir/d" ~/.bashrc && rm -f ~/.bash_init_dir ~/.saved_init_dir && unset -f sit sitc sith uninstall_init_dir && echo "init_dir uninstalled."; }
 
 # On terminal startup: jump to the saved directory, but only when the shell
 # started in $HOME (the default). If you opened the terminal somewhere on
